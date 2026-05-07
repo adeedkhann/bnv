@@ -15,8 +15,8 @@ dotenv.config();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
-
-app.use(cors({ origin: "*" }));
+const frontEndUrl=process.env.FRONTENDURL
+app.use(cors({ origin: frontEndUrl}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
