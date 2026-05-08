@@ -2,28 +2,28 @@ import React from 'react';
 
 const Pagination = ({ page, totalPages, onPageChange }) => {
   return (
-    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-      <p className="text-sm text-gray-500">
-        Page {page} of {totalPages}
-      </p>
-      <div className="flex items-center gap-2">
-        <button
-          type="button"
-          onClick={() => onPageChange(Math.max(1, page - 1))}
-          disabled={page <= 1}
-          className="rounded-md border border-gray-300 px-3 py-1 text-sm font-semibold text-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          Previous
-        </button>
-        <button
-          type="button"
-          onClick={() => onPageChange(Math.min(totalPages, page + 1))}
-          disabled={page >= totalPages}
-          className="rounded-md border border-gray-300 px-3 py-1 text-sm font-semibold text-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          Next
-        </button>
-      </div>
+    <div className="inline-flex items-center gap-1 rounded-md border border-gray-200 bg-white p-1 shadow-sm">
+      <button
+        type="button"
+        onClick={() => onPageChange(Math.max(1, page - 1))}
+        disabled={page <= 1}
+        className="h-8 w-8 rounded-sm border border-gray-200 bg-white text-sm font-semibold text-gray-600 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+        aria-label="Previous page"
+      >
+        &lt;
+      </button>
+      <span className="inline-flex h-8 min-w-8 items-center justify-center rounded-sm bg-[#8B2323] px-2 text-sm font-semibold text-white">
+        {page}
+      </span>
+      <button
+        type="button"
+        onClick={() => onPageChange(Math.min(totalPages, page + 1))}
+        disabled={page >= totalPages}
+        className="h-8 w-8 rounded-sm border border-gray-200 bg-white text-sm font-semibold text-gray-600 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+        aria-label="Next page"
+      >
+        &gt;
+      </button>
     </div>
   );
 };
